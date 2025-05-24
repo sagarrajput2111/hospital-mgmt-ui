@@ -1,0 +1,121 @@
+<!-- <table border="1" style="width: 100%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>Registration ID</th>
+            <th>Full Name</th>
+            <th>Age</th>
+            <th>Admit Date</th>
+            <th>Discharge Date</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (patient of patients; track $index) {
+
+        <tr>
+            <td>{{ patient.registrationId }}</td>
+            <td>{{ patient.fullName }}</td>
+            <td>{{ patient.age }}</td>
+            <td>{{ patient.admitDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ patient.dischargeDate | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ patient.address }}</td>
+        </tr>
+        }
+
+    </tbody>
+</table> -->
+
+@if(router.url=='/home/patient-services') {
+    
+<div class="card-container">
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Admit New Patient</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <p>Admit the patient</p> -->
+        </mat-card-content>
+        <mat-card-footer class="example-card-footer">
+            <mat-chip-set aria-label="Chihuahua traits">
+                <mat-chip (click)="openDialog()">Admit</mat-chip>
+
+                <!-- <mat-chip>graceful</mat-chip>
+                <mat-chip>sassy</mat-chip> -->
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Update Patient Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <p>Add the patient</p> -->
+        </mat-card-content>
+        <mat-card-footer class="example-card-footer">
+            <mat-chip-set aria-label="Chihuahua traits">
+                <mat-chip>Update</mat-chip>
+                <!-- <mat-chip>graceful</mat-chip>
+                <mat-chip>sassy</mat-chip> -->
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Show All Patients</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <p>Add the patient</p> -->
+        </mat-card-content>
+        <mat-card-footer class="example-card-footer">
+            <mat-chip-set aria-label="Chihuahua traits">
+                <!-- <mat-chip>charming</mat-chip>
+                <mat-chip>graceful</mat-chip> -->
+                <mat-chip [routerLink]="['all-patients']" routerLinkActive="router-link-active" >Show</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Profile Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <p>Add the patient</p> -->
+        </mat-card-content>
+        <mat-card-footer class="example-card-footer">
+            <mat-chip-set aria-label="Chihuahua traits">
+                <!-- <mat-chip>charming</mat-chip>
+                <mat-chip>graceful</mat-chip> -->
+                <mat-chip>Profile</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Profile Information</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <p>Add the patient</p> -->
+        </mat-card-content>
+        <mat-card-footer class="example-card-footer">
+            <mat-chip-set aria-label="Chihuahua traits">
+                <!-- <mat-chip>charming</mat-chip>
+                <mat-chip>graceful</mat-chip> -->
+                <mat-chip>Profile</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+</div>
+    
+}
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+  

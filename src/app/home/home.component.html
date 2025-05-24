@@ -1,0 +1,36 @@
+<!-- <div class="header" style=" padding: 10px; border-bottom: 1px solid #ddd;">
+    <img src="assets/logo.png" alt="Hospital Logo" style="height: 50px; margin-right: 15px;">
+    <h1>Hospital Name</h1>
+
+</div> -->
+<header>
+    <nav class="navbar">
+        <div class="brand">Meenakshi Hospital</div>
+        <div class="menu-icon" (click)="toggleMenu()">
+            &#9776; <!-- hamburger icon -->
+        </div>
+        <ul class="nav-list" [class.open]="menuOpen">
+            <li (click)="selectOption('Home')" [routerLink]="['patient-services']" routerLinkActive="router-link-active"
+                [class.active]="selected === 'Home'">Patient Services</li>
+            <li (click)="selectOption('About')" [class.active]="selected === 'About'">Staff Portal</li>
+            <li (click)="selectOption('Services')" [class.active]="selected === 'Services'">Dashboard</li>
+            <li (click)="selectOption('Settings')" [class.active]="selected === 'Settings'">Finance</li>
+            <li (click)="selectOption('Contact')" [class.active]="selected === 'Contact'">Profile</li>
+            <li>Dr Dummy Dummy</li>
+        </ul>
+    </nav>
+</header>
+<main>
+    @if (router.url=='/home') {
+    <div class="content">
+        <h1>Welcome to the Hospital Management System</h1>
+        <p>Manage your patients and staff efficiently.</p>
+    </div>
+    }
+    <router-outlet></router-outlet>
+
+</main>
+
+<footer class="footer">
+    <p>&copy; 2023 Hospital Management System. All rights reserved.</p>
+</footer>
