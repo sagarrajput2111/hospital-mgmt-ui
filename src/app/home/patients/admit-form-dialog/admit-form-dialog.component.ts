@@ -49,13 +49,17 @@ export class AdmitFormDialogComponent {
       lastName: ['', Validators.required],
       // age: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
       gender: ['', Validators.required],
+      priority: ['', Validators.required],
       dateOfBirth: [new Date(), Validators.required],
-      contactNumber: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
+      contact: ['', [Validators.pattern(/^[0-9]{10}$/)]],
       email: ['', [Validators.email]],
       address: [''],
       bloodGroup: [''],
       emergencyContact: ['', Validators.pattern(/^[0-9]{10}$/)],
-      medicalHistory: ['']
+      medicalHistory: [''],
+      bedNumber: ['', Validators.required],
+      initialSymptoms: ['', Validators.required]
+
     });
 
   }

@@ -10,13 +10,15 @@
             &#9776; <!-- hamburger icon -->
         </div>
         <ul class="nav-list" [class.open]="menuOpen">
-            <li (click)="selectOption('Home')" [routerLink]="['patient-services']" routerLinkActive="router-link-active"
-                [class.active]="selected === 'Home'">Patient Services</li>
-            <li (click)="selectOption('About')" [class.active]="selected === 'About'">Staff Portal</li>
-            <li (click)="selectOption('Services')" [class.active]="selected === 'Services'">Dashboard</li>
-            <li (click)="selectOption('Settings')" [class.active]="selected === 'Settings'">Finance</li>
-            <li (click)="selectOption('Contact')" [class.active]="selected === 'Contact'">Profile</li>
-            <li>Dr Dummy Dummy</li>
+            <li (click)="selectOption('Services')" [routerLink]="['patient-services']"
+                routerLinkActive="router-link-active" [class.active]="selected === 'Services'">Patient Services</li>
+            <!-- <li (click)="selectOption('About')" [class.active]="selected === 'About'">Staff Portal</li> -->
+            <li (click)="selectOption('Statistics')" [class.active]="selected === 'Statistics'">Statistics Dashboard</li>
+            <li (click)="selectOption('Finance')" [routerLink]="['finance']" routerLinkActive="router-link-active"
+                [class.active]="selected === 'Finance'">Finance</li>
+            <li (click)="selectOption('Profile')" [routerLink]="['profile']"
+                routerLinkActive="router-link-active" [class.active]="selected === 'Profile'">Profile</li>
+            <li>{{(userPayload|async)?.firstName}} </li>
         </ul>
     </nav>
 </header>

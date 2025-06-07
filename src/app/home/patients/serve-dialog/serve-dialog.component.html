@@ -1,8 +1,25 @@
-<h2 mat-dialog-title>Please fill the patient details</h2>
+<h2 mat-dialog-title>Serve the patient</h2>
 <mat-dialog-content>
     <!-- <mat-card>
         <mat-card-title>Admit Patient</mat-card-title> -->
     <form [formGroup]="patientForm" class="margin-top">
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Bed Number</mat-label>
+            <mat-select formControlName="bedNumber">
+                <mat-option value="">Select</mat-option>
+                @for (item of beds; track $index) {
+                <mat-option [value]="item">{{ item }}</mat-option>
+                }
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Patient Id</mat-label>
+            <input matInput formControlName="patientId" />
+        </mat-form-field>
+
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>First Name</mat-label>
@@ -14,14 +31,6 @@
             <input matInput formControlName="lastName" />
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Gender</mat-label>
-            <mat-select formControlName="gender">
-                <mat-option value="Male">Male</mat-option>
-                <mat-option value="Female">Female</mat-option>
-                <mat-option value="Other">Other</mat-option>
-            </mat-select>
-        </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Priority</mat-label>
@@ -43,20 +52,6 @@
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Contact Number</mat-label>
-            <input matInput formControlName="contact" />
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email" type="email" />
-        </mat-form-field>
-
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Address</mat-label>
-            <textarea matInput formControlName="address"></textarea>
-        </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Blood Group</mat-label>
@@ -79,14 +74,26 @@
             <mat-label>Medical History</mat-label>
             <textarea matInput formControlName="medicalHistory"></textarea>
         </mat-form-field>
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Bed Number</mat-label>
-            <input matInput formControlName="bedNumber" />
-        </mat-form-field>
 
         <mat-form-field appearance="outline" class="full-width">
             <mat-label>Initial Symptoms</mat-label>
             <textarea matInput formControlName="initialSymptoms"></textarea>
+        </mat-form-field>
+
+        <div formArrayName="remarks">
+            <div *ngFor="let remark of remarks.controls; let i = index" [formGroupName]="i">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Served By {{remark.value.servedBy}}</mat-label>
+                    <textarea matInput formControlName="note"></textarea>
+                    <mat-hint>{{remark.value.servedAt}}</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Give your remarks</mat-label>
+            <textarea matInput formControlName="remark"></textarea>
         </mat-form-field>
 
 
@@ -103,6 +110,6 @@
     <button mat-button (click)="cancel()">Cancel</button>
     <!-- cdkFocusInitial => add this for initial focus not required in our case -->
     <button mat-button [mat-dialog-close]="patientForm" [disabled]="patientForm.invalid">
-        Admit
+        Serve
     </button>
 </mat-dialog-actions>

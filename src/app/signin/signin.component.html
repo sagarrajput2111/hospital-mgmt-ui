@@ -7,17 +7,17 @@
         <div>
             <mat-form-field>
                 <mat-label >Email</mat-label>
-                <input matInput formControlName="email">
+                <input matInput formControlName="email" type="email">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field>
                 <mat-label>Password</mat-label>
-                <input matInput formControlName="password">
+                <input matInput formControlName="password" type="password">
             </mat-form-field>
         </div>
 
-        <button mat-raised-button  type="submit" class="black-button" >Login</button>
+        <button mat-raised-button  type="submit" class="black-button" disabled="false" >Login</button>
         <a  [routerLink]="['/register']"  >click to register</a>
         
 
